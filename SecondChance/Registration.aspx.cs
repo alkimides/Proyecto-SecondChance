@@ -63,7 +63,7 @@ namespace SecondChance
                     SqlCommand cmd = new SqlCommand("insert into [SecondChance.users] (UserID, First_Name, Last_Name, Birth_Date, Phone_Number, Email, Adress, Password, Username) values (@UserID, @First_Name, @Last_Name, @Birth_Date, @Phone_Number, @Email, @Adress, @Password, @Username)", con);
                     String queryMax = "select max(UserID) from [SecondChance.Users]";
                     SqlCommand cmd1 = new SqlCommand(queryMax);
-                    //cambio1
+                    //la rama del aim
                     cmd.Parameters.AddWithValue("@UserID", cmd1.ExecuteScalar());
                     cmd.Parameters.AddWithValue("@First_Name", txtFirstName.Text.ToString());
                     cmd.Parameters.AddWithValue("@Last_Name", txtLastName.Text.ToString());
