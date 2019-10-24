@@ -49,7 +49,7 @@
 
                     </td>
                     <td>
-                        <asp:Label ID="lblErrorMsg" runat="server" Text="Credenciales Incorrectas" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblErrorMsg" runat="server" Text="" ForeColor="Red"></asp:Label>
                     </td>
                 </tr>
             </table>

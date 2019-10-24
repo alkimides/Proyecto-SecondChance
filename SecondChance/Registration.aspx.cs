@@ -61,33 +61,46 @@ namespace SecondChance
            
                 if (Page.IsValid)
                 {
-
+                    
+                    try
+                    {
+                    //Creamos la conexión
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SecondChanceConnectionString"].ConnectionString);
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into [SecondChance].[Users] (First_Name, Last_Name, Birth_Date, Phone_Number, Email, Adress, Password, Username) values (@First_Name, @Last_Name, @Birth_Date, @Phone_Number, @Email, @Adress, @Password, @Username)", con);
+                    //Insertamos el procedimiento almacenado sp_Insert
+                    SqlCommand cmd = new SqlCommand("SecondChance.sp_Insert", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        //Metemos todos los datos con sus correspondientes valores
+                        cmd.Parameters.AddWithValue("@UserID", 0);
+                        cmd.Parameters.AddWithValue("@First_Name", txtFirstName.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Last_Name", txtLastName.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Birth_Date", txtBirthDate.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Phone_Number", txtPhoneNumber.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Country", ddlCountry.SelectedItem.Value);
+                        cmd.Parameters.AddWithValue("@Adress", txtAdress.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Password", txtPassword.Text.ToString());
+                        cmd.Parameters.AddWithValue("@Username", txtUsername.Text.ToString());
+
+                        //Si se registra correctamente nos lleva a login.aspx para poder acceder a la pagina
+                        int codereturn = (int)cmd.ExecuteScalar();
+                        Response.Redirect("~/Login.aspx");
+
+
+                     }
+                       catch(Exception ex)
+                        {
+                    //Creamos una excepcion por si falla el registro:
+                        lblMsg.Text = "El usuario ya existe";
+                        lblMsg.ForeColor = System.Drawing.Color.Red;
+                        }
                     
+                   
+                   
+
+
+                }
                 
-                    
-                    cmd.Parameters.AddWithValue("@First_Name", txtFirstName.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Last_Name", txtLastName.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Birth_Date", txtBirthDate.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Phone_Number", txtPhoneNumber.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Country",ddlCountry.SelectedItem.Value);
-                    cmd.Parameters.AddWithValue("@Adress", txtAdress.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Password", txtPassword.Text.ToString());
-                    cmd.Parameters.AddWithValue("@Username", txtUsername.Text.ToString());
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                    con.Close();
-                    Response.Write("<script>Registrado Correctamente</script>");
-                    ClearFields();
-                    Response.Redirect("~/Login.aspx");
-
-
-            }
-                else
-                    Response.Write("<script>Error, por favor, intentelo de nuevo</script>");
            
             
         }

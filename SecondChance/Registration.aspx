@@ -79,6 +79,11 @@
                         <asp:Button ID="btnBacktoLogin" runat="server" Text="Already Registerded" OnClick="btnBacktoLogin_Click" />  
                     </td>  
                 </tr>   
+                <tr>
+                    <td>
+                        <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr>
             </table> 
         </div>
     </form>
