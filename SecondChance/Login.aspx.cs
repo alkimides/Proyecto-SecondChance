@@ -22,7 +22,7 @@ namespace SecondChance
             using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["SecondChanceConnectionString"].ConnectionString))
             {
                 sqlCon.Open();
-                String query = "Select * From [SecondChance.Users] Where username=@Username AND password=@password";
+                String query = "Select * From [SecondChance].[Users] Where username=@Username AND password=@password";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@Username", txtUserName.Text.Trim());
                 sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
