@@ -9,8 +9,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style: >
-             <table class="auto-style1">  
+        <div style="background-image: url('Images/space-624054.jpg'); height: 1080px;">
+           
+        <div style="position:relative; top: 396px; left: 672px; width: 324px;" >
+            <asp:Label ID="lblRegisterTitle"  runat="server" Text="WELCOME" ForeColor="White" Font-Size="XX-Large"></asp:Label>
+            <br />
+            <br />
+
+            <br />
+
+             <table style="margin:auto;border:5px solid white">  
                 
                 <tr>  
                     <td>First Name</td>  
@@ -85,6 +93,9 @@
                     </td>
                 </tr>
             </table> 
+        </div>
+           
+            
         </div>
     </form>
 </body>

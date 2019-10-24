@@ -6,19 +6,26 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style>
-        body{
-            background-color: cyan;
-        }
-    </style>
+ 
 </head>
-<body>
+<body style="height: 268px">
     <form id="form1" runat="server">
-        <div>
+        <div style="background-image: url('Images/loginImage.jpg'); height:1080px">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+        <div style="position:relative; height: 117px; width: 369px; top: 244px; left: 752px;">
             <table style="margin:auto;border:5px solid white">
                 <tr>
                     <td>
-                        <asp:Label ID="lblUsername" runat="server" Text="Nombre de usuario"></asp:Label>
+                        <asp:Label ID="lblUsername" runat="server" Text="Username :" ForeColor="White"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
@@ -26,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblPassword" runat="server" Text="Contraseña"></asp:Label>
+                        <asp:Label ID="lblPassword" runat="server" Text="Password: " ForeColor="White"></asp:Label>
                     </td>
                     <td>
                         <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
@@ -53,6 +60,7 @@
                     </td>
                 </tr>
             </table>
+        </div>
         </div>
     </form>
 </body>

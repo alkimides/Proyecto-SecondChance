@@ -125,6 +125,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\loginImage.jpg" />
+    <Content Include="Images\space-624054.jpg" />
     <Content Include="Login.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Registration.aspx" />
