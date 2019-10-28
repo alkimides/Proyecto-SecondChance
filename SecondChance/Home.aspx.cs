@@ -11,11 +11,13 @@ namespace SecondChance
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Guardamos sesión en un label
             lblUserLoginDetails.Text = "Username: " + Session["Username"];
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
+            //Logout y a inicio de sesión
             Session.Abandon();
             Response.Redirect("Login.aspx");
         }
